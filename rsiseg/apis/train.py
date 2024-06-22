@@ -12,7 +12,7 @@ from mmcv.runner import (HOOKS, DistSamplerSeedHook, EpochBasedRunner,
 from mmcv.utils import build_from_cfg
 
 from rsiseg import digit_version
-from rsiseg.core import DistEvalHook, EvalHook, build_optimizer
+from rsiseg.core import DistEvalHook, EvalHook, build_optimizer, MMSegWandbHook, WandbHookSeg
 from rsiseg.utils import find_latest_checkpoint, get_root_logger
 from rsiseg.datasets import build_dataloader, build_dataset 
 
@@ -161,10 +161,20 @@ def train_segmentor(model,
         eval_cfg = cfg.get('evaluation', {})
         eval_cfg['by_epoch'] = cfg.runner['type'] != 'IterBasedRunner'
         eval_hook = DistEvalHook if distributed else EvalHook
+        # mm_seg_wand_hook = MMSegWandbHook
+        wandb_hook_seg = WandbHookSeg
+
         # In this PR (https://github.com/open-mmlab/mmcv/pull/1193), the
         # priority of IterTimerHook has been modified from 'NORMAL' to 'LOW'.
         runner.register_hook(
             eval_hook(val_dataloader, **eval_cfg), priority='LOW')
+        # runner.register_hook(
+        #     mm_seg_wand_hook(dict(project="RSI-Segmentation",
+        #                              name='train')), priority='LOW')
+        runner.register_hook(
+            wandb_hook_seg(dict(project="RSI-Segmentation",
+                                     name='train')), priority='LOW')
+
 
     # user-defined hooks
     if cfg.get('custom_hooks', None):

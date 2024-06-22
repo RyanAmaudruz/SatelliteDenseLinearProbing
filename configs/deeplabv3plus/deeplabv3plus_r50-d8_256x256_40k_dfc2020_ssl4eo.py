@@ -9,8 +9,12 @@ model = dict(
         ),
     decode_head=dict(num_classes=8),
     auxiliary_head=dict(num_classes=8),
-    pretrained='/p/project/hai_ssl4eo/wang_yi/pretrained_weights/rn50_B13_moco-v2_ssl4eo_100ep.pth',)
-    
+    pretrained='/gpfs/work5/0/prjs0790/data/old_checkpoints/B13_rn50_moco_0099_ckpt_MODIFIED.pth',)
+    # pretrained='/gpfs/work5/0/prjs0790/data/run_outputs/checkpoints/leopart_ssl/leopart_run3/leopart-20240217-100845/ckp-epoch=39.ckpt',)
+    # pretrained='/gpfs/home2/ramaudruz/SSL4EO-S12/old_checkpoints/B13_rn50_moco_0099_ckpt.pth',)
+
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0005)
+
+
 
 #evaluation = dict(interval=400, metric='mIoU', pre_eval=True)

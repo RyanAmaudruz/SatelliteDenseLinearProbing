@@ -7,6 +7,7 @@ from mmcv.runner import DistEvalHook as _DistEvalHook
 from mmcv.runner import EvalHook as _EvalHook
 from torch.nn.modules.batchnorm import _BatchNorm
 import pdb
+import wandb
 
 
 class EvalHook(_EvalHook):

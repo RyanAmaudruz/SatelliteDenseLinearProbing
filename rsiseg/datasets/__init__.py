@@ -1,5 +1,5 @@
 from .builder import DATASETS, PIPELINES, build_dataloader, build_dataset
-from .custom import EODataset, CustomDataSet
+from .custom import EODataset, CustomDataset
 from .loveda import LoveDADataset
 from .geonrw import GeoNRWDataset
 from .vaihingen import VaihingenDataset

@@ -6,7 +6,7 @@ from mmcv.parallel import collate, scatter
 from mmcv.runner import load_checkpoint
 
 from rsiseg.models import build_segmentor
-from Dataset4EO import datasets
+# from Dataset4EO import datasets
 
 
 def init_segmentor(config, checkpoint=None, device='cuda:0'):

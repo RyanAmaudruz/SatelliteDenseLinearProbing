@@ -117,8 +117,33 @@ def parse_args():
     return args
 
 
+class FakeArgs:
+    config = '/gpfs/home2/ramaudruz/RSI-Segmentation/configs/deeplabv3plus/deeplabv3plus_r50-d8_256x256_40k_dfc2020_ssl4eo.py'
+    checkpoint = '/gpfs/home2/ramaudruz/RSI-Segmentation/tools/work_dirs/deeplabv3plus_r50-d8_256x256_40k_dfc2020_ssl4eo/iter_40000.pth'
+    out = '/gpfs/home2/ramaudruz/RSI-Segmentation/tools/work_dirs/deeplabv3plus_r50-d8_256x256_40k_dfc2020_ssl4eo/out.pkl'
+    eval = True
+    format_only = False
+    cfg_options = None
+
+
+    # cfg_options = None
+    # work_dir = None
+    # load_from = None
+    # resume_from = None
+    # gpu = 0
+    # gpus = 1
+    # gpu_ids = None
+    # auto_resume = True
+    # launcher = 'none'
+    # seed = 0
+    # diff_seed = None
+    # deterministic = True
+    # validate = False
+
 def main():
-    args = parse_args()
+    args = FakeArgs()
+
+    # args = parse_args()
     assert args.out or args.eval or args.format_only or args.show \
         or args.show_dir, \
         ('Please specify at least one operation (save/eval/format/show the '

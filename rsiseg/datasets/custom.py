@@ -6,6 +6,7 @@ import pdb
 
 import mmcv
 import numpy as np
+import wandb
 from mmcv.utils import print_log
 from prettytable import PrettyTable
 from torch.utils.data import Dataset
@@ -357,43 +358,12 @@ class EODataset(Dataset):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @DATASETS.register_module()
 class CustomDataset(Dataset):
     """Custom dataset for semantic segmentation. An example of file structure
     is as followed.
 
     .. code-block:: none
-
-        ©À©¤©¤ data
-        ©¦   ©À©¤©¤ my_dataset
-        ©¦   ©¦   ©À©¤©¤ img_dir
-        ©¦   ©¦   ©¦   ©À©¤©¤ train
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ xxx{img_suffix}
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ yyy{img_suffix}
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ zzz{img_suffix}
-        ©¦   ©¦   ©¦   ©À©¤©¤ val
-        ©¦   ©¦   ©À©¤©¤ ann_dir
-        ©¦   ©¦   ©¦   ©À©¤©¤ train
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ xxx{seg_map_suffix}
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ yyy{seg_map_suffix}
-        ©¦   ©¦   ©¦   ©¦   ©À©¤©¤ zzz{seg_map_suffix}
-        ©¦   ©¦   ©¦   ©À©¤©¤ val
 
     The img/gt_semantic_seg pair of CustomDataset should be of the same
     except suffix. A valid img/gt_semantic_seg filename pair should be like
@@ -429,7 +399,7 @@ class CustomDataset(Dataset):
         file_client_args (dict): Arguments to instantiate a FileClient.
             See :class:`mmcv.fileio.FileClient` for details.
             Defaults to ``dict(backend='disk')``.
-    """
+            """
 
     CLASSES = None
 
@@ -461,6 +431,7 @@ class CustomDataset(Dataset):
         self.ignore_index = ignore_index
         self.reduce_zero_label = reduce_zero_label
         self.label_map = None
+        self.wandb_logger = None
         self.CLASSES, self.PALETTE = self.get_classes_and_palette(
             classes, palette)
         self.gt_seg_map_loader = LoadAnnotations(
@@ -842,5 +813,14 @@ class CustomDataset(Dataset):
                 key + '.' + str(name): value[idx] / 100.0
                 for idx, name in enumerate(class_names)
             })
+
+        if self.wandb_logger is None:
+            self.wandb_logger = wandb.init(
+                # Set the project where this run will be logged
+                project="RSI-Segmentation",
+                name='rsi_semantic_seg',
+                # Track hyperparameters and run metadata
+            )
+        wandb.log(eval_results)
 
         return eval_results

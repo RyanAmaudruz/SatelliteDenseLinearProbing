@@ -164,8 +164,8 @@ class WandbHookSeg(WandbLoggerHook):
             pred_masks = {
                 'mask_data': pred,
                 'class_labels': class_labels}
-            img_log['gt'].append(self.wandb.Image(img, masks={'ground_truth': gt_masks}))
-            img_log['pred'].append(self.wandb.Image(img, masks={'predition': pred_masks}))
+            img_log['gt'].append(self.wandb.Image(img[:, :, 1:4], masks={'ground_truth': gt_masks}))
+            img_log['pred'].append(self.wandb.Image(img[:, :, 1:4], masks={'predition': pred_masks}))
 
         self.wandb.log(img_log)
 

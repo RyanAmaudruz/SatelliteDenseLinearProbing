@@ -28,14 +28,22 @@ def rename_string(s,target):
         return "Error: Input string does not contain target sub-string"
 
 
-parser = argparse.ArgumentParser(
-        description='Convert DFC2020 to mmsegmentation format')
-parser.add_argument('--in_dir', help='data path')
-parser.add_argument('--out_dir', help='output path')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(
+#         description='Convert DFC2020 to mmsegmentation format')
+# parser.add_argument('--in_dir', help='data path')
+# parser.add_argument('--out_dir', help='output path')
+# args = parser.parse_args()
 
 #args.in_dir = './'
 #args.out_dir = './dfc2020_mmseg'
+
+class FakeArgs:
+    in_dir = '/gpfs/work5/0/prjs0790/data/grss'
+    out_dir = '/gpfs/work5/0/prjs0790/data/grss/dfc2020_mmseg'
+
+args = FakeArgs()
+
+
 
 #os.makedirs(args.out_dir)
 s1_dir = os.path.join(args.out_dir,'s1_dir')
