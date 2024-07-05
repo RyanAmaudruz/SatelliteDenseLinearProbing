@@ -123,9 +123,9 @@ def parse_args():
     return args
 
 class FakeArgs:
-    config = '/var/node433/local/ryan_a/RSI-Segmentation/configs/segmenter/segmenter_vit-s_linear_8x1_512x512_160k_dfc2020.py'
+    config = '/var/node433/local/ryan_a/RSI-Segmentation/configs/segmenter/segmenter_vit-s_linear_8x1_512x512_160k_mados.py'
     cfg_options = None
-    work_dir = '/var/node433/local/ryan_a/data/dfc2020_linear/leo_new_queue-e19'
+    work_dir = '/var/node433/local/ryan_a/data/mados_linear/weighted_odin_transform_fixed-mixed_aug-w_local_negs_e4'
     load_from = None
     resume_from = None
     gpu = 0
