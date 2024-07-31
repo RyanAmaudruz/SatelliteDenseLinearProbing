@@ -4,20 +4,7 @@ _base_ = [
     '../_base_/schedules/schedule_40k.py'
 ]
 
-# checkpoint = '/gpfs/work5/0/prjs0790/data/modified_checkpoints/ssl_s2c_new_transforms_0099_ckpt_MODIFIED.pth'  # noqa
-# checkpoint = '/gpfs/work5/0/prjs0790/data/modified_checkpoints/ssl_leopart_mgpu_49_ckpt_MODIFIED.pth'
-# checkpoint = '/var/node433/local/ryan_a/data/old_checkpoints/B13_vits16_dino_0099_ckpt.pth'
-# checkpoint = '/var/node433/local/ryan_a/data/ssl4eo_ssl/ssl4eo_ssl/distillation_l2_normalised/checkpoint.pth'
-# checkpoint = '/var/node433/local/ryan_a/data/ssl4eo_ssl/ssl4eo_ssl/ssl_s2c_new_transforms/checkpoint.pth'
-# checkpoint = '/var/node433/local/ryan_a/data/odin_missing_runs/trans_mixed_aug_wo_loc_neg-k=20_4/2024-04-11_16-55_ckp-epoch=04.ckpt'
-# checkpoint =  '/var/node433/local/ryan_a/data/odin_missing_runs/transform_fixed-mixed_aug-w_local_negs/2024-04-06_12-31_ckp-epoch=02.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/odin_missing_runs/transform_fixed-mixed_aug/2024-04-06_08-14_ckp-epoch=02.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/leo_missing/single_queue-with_dino/20240421-164828_ckp-epoch=24_mod.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/leo_missing/leopart_new_transform_leopart-20240221-081849/ckp-epoch=04_mod.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/leo_missing/single_queue-with_dino/20240421-164828_ckp-epoch=24_mod.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/leo_missing/new_queue-with_dino_loss/20240419-002419_ckp-epoch=24_mod.ckpt'
-# checkpoint = '/var/node433/local/ryan_a/data/leo_missing/leo_new_queue/ckp-epoch=19_mod.ckpt'
-checkpoint = '/var/node433/local/ryan_a/data/leo_missing/simple_leo/ckp-epoch=24_mod1.ckpt'
+checkpoint = '/var/node433/local/ryan_a/data/leo_missing/leo_new_queue/ckp-epoch=19_mod.ckpt'
 
 backbone_norm_cfg = dict(type='LN', eps=1e-6, requires_grad=True)
 model = dict(

@@ -8,7 +8,7 @@ class DFC2020Dataset(CustomDataset):
     """DFC2020 dataset.
     
     We currently support Sentinel-2 13 bands. We use the official 5128/986 "test"/"validation" set as our "train/test" set.
-    Please refer to RSI-Segmentation/tools/convert_datasets/dfc2020.py for data preparation.
+    Please refer to SatelliteDenseLinearProbing/tools/convert_datasets/dfc2020.py for data preparation.
 
     In segmentation map annotation for DFC2020, 0 stands for background, which
     is not included in 8 categories. ``reduce_zero_label`` is fixed to True.    

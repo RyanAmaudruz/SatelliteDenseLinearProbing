@@ -17,10 +17,13 @@ class_dist = [
 # class_dist = [
 #     0.209744, 0.0067099, 0.1465833, 0.016390, 0.2295087, 0.1316990, 0.00074441, 0.2586201
 # ]
-class_weight = [
-    1/np.log(1.02 + d) for d in class_dist
-    # (1/np.log(1.02 + d)) ** 1.2 for d in class_dist
-]
+# class_weight = [
+#     1/np.log(1.02 + d) for d in class_dist
+# ]
+
+# class_weight = [
+#     1/d for d in class_dist
+# ]
 
 model = dict(
     decode_head=dict(
@@ -34,6 +37,7 @@ model = dict(
         num_classes=15,
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0,
-            class_weight=class_weight)
+            # class_weight=class_weight
+        )
     )
 )

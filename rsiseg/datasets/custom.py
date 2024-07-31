@@ -817,7 +817,7 @@ class CustomDataset(Dataset):
         if self.wandb_logger is None:
             self.wandb_logger = wandb.init(
                 # Set the project where this run will be logged
-                project="RSI-Segmentation",
+                project="SatelliteDenseLinearProbing",
                 name='rsi_semantic_seg',
                 # Track hyperparameters and run metadata
             )

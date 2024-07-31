@@ -169,10 +169,10 @@ def train_segmentor(model,
         runner.register_hook(
             eval_hook(val_dataloader, **eval_cfg), priority='LOW')
         # runner.register_hook(
-        #     mm_seg_wand_hook(dict(project="RSI-Segmentation",
+        #     mm_seg_wand_hook(dict(project="SatelliteDenseLinearProbing",
         #                              name='train')), priority='LOW')
         runner.register_hook(
-            wandb_hook_seg(dict(project="RSI-Segmentation",
+            wandb_hook_seg(dict(project="SatelliteDenseLinearProbing",
                                      name='train')), priority='LOW')
 
 
