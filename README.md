@@ -48,6 +48,9 @@ We add conda yaml files to set up the Python environment under the [installation
 
 Alternatively, refer to the [requirements folder](requirements) for the different necessary packages.
 
+## Script
+- [Dense LP Script](https://github.com/RyanAmaudruz/SatelliteDenseLinearProbing/tree/main/snellius/rsi_seg_train_das4.sh): Linear probing semantic segmentation script.
+
 ## License
 
 This project is released under the [Apache 2.0 license](LICENSE).
