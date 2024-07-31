@@ -33,6 +33,9 @@ Author: *Amaudruz R.*
 
 Supervisors: *Yuki A., Russwurm, M.*
 
+## Contribution
+We add here the implementation for the MADOS dataset.
+
 ## Acknowledgement
 This repository is based on [openMMlab](https://github.com/open-mmlab) and [RSI-Segmentation](https://github.com/EarthNets/RSI-Segmentation).
 
